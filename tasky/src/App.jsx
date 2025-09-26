@@ -5,11 +5,9 @@ function App() {
   return (
       <div className="container">
       <h1>Tasky</h1>
-      <Task title="Dishes" deadline="Today">
-        Fold laundry and put away
-      </Task>
-      <Task title="Laundry" deadline="Tomorrow" />
-      <Task title="Tidy" deadline="Today" />
+      <Task title="Dishes" deadline="Today" description="Wash and dry dishes"/>
+      <Task title="Laundry" deadline="Tomorrow" description="Fold and put away laundry"/>
+      <Task title="Tidy" deadline="Today" description="Room is a mess clean it up"/>
 
     </div>
   );
