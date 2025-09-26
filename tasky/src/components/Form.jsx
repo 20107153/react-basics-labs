@@ -6,6 +6,7 @@ const AddTaskForm = (props) => {
         <div>
             <form>
                 <label>
+                    Task Title:
                     <input type="Text" name="Title" required />
                 </label>
                 <br />
@@ -23,3 +24,5 @@ const AddTaskForm = (props) => {
         </div>
     )
 };
+
+export default AddTaskForm;
