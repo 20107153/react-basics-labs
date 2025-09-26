@@ -15,9 +15,9 @@ function App() {
       <h1>Tasky</h1>
       {taskState.tasks.map((task) => (
       <Task
-      title ={Task.title}
-      description={Task.description}
-      deadline={Task.deadline}
+      title ={task.title}
+      description={task.description}
+      deadline={task.deadline}
       />
       ))}
     </div>
