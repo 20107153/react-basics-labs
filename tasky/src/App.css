@@ -97,3 +97,15 @@ form {
   width: 50%;
   margin: auto;
 } 
+.priority-low {
+  background-color: lightgreen;
+  font-weight:bold;
+}
+.priority-medium {
+  background-color: orange;
+  font-weight:bold;
+}
+.priority-high {
+  background-color: tomato;
+  font-weight:bold;
+}

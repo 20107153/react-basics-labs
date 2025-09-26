@@ -2,6 +2,7 @@ import './App.css';
 import Task from './components/Task';
 import React, { useState } from 'react';
 import AddTaskForm from './components/Form'
+import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [taskState, setTaskState ] = useState({
     tasks : [
@@ -21,6 +22,44 @@ function App() {
     tasks.splice(taskIndex, 1);
     setTaskState({tasks});
   } 
+  const [ formState, setFormState] = useState({
+    title: "",
+    description: "",
+    deadline: "",
+    priority: "Low"
+  });
+
+  const formChangeHandler = (event) => {
+    let form = {...formState};
+    switch(event.target.name) {
+      case "Title":
+        form.title = event.target.value;
+        break;
+      case "Description":
+        form.description = event.target.value;
+        break;
+      case "Deadline":
+        form.deadline = event.target.value;
+        break;
+      case "Priority":
+        form.priority = event.target.value;
+        break;
+      default:
+        form = formState;
+    }
+    setFormState(form);
+  }
+    const formSubmitHandler = (event) => {
+    event.preventDefault();
+
+    const tasks = [...taskState.tasks];
+    const form = {...formState};
+
+    form.id = uuidv4();
+    
+    tasks.push(form);
+    setTaskState({tasks});
+  }
   return (
       <div className="container">
       <h1>Tasky</h1>
@@ -34,9 +73,11 @@ function App() {
       done={task.done}
       markDone={() => doneHandler(index)}
       deleteTask = {() => deleteHandler(index)}
+      onChange={(event) => props.change(event)}
       />
       ))}
-      <AddTaskForm />
+         <AddTaskForm submit={formSubmitHandler} change={formChangeHandler} />
+      console.log(formState);
     </div>
   );
 }
